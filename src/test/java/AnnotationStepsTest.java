@@ -6,7 +6,6 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-
 import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -29,9 +28,10 @@ public class AnnotationStepsTest {
     @Link(url = "https://github.com")
     @Owner("dianamishanich")
     @Severity(SeverityLevel.CRITICAL)
-    public void creatingNewIssue() {
-        final IssuesBaseSteps steps = new IssuesBaseSteps();
 
+    public void creatingNewIssue() {
+
+        final IssuesBaseSteps steps = new IssuesBaseSteps();
         steps.openMainPage();
         steps.LogIn(user, password);
         steps.OpenListRepositories(repository);
@@ -121,6 +121,5 @@ public class AnnotationStepsTest {
         public void shouldSeeIssueWithTitle(String IssueTitle) {
             $(withText(IssueTitle)).should(Condition.exist);
         }
-
     }
 }
