@@ -1,9 +1,6 @@
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
@@ -24,10 +21,8 @@ public class AnnotationStepsTest {
     @Test
     @DisplayName("Тест с аннотациями")
     @Feature("Issues")
-    @Story("User should see issues in existing repository")
-    @Link(url = "https://github.com")
+    @Story("Пользователь проходит авторизацию на GitHub.com, в одном из своих репозиториев создает новую задачу с назначением ответственного и тегов.")
     @Owner("dianamishanich")
-    @Severity(SeverityLevel.CRITICAL)
 
     public void creatingNewIssue() {
 
