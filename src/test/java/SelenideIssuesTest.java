@@ -21,14 +21,18 @@ public class    SelenideIssuesTest {
         public void createIssueTest() {
         Configuration.startMaximized = true;
 
+        //Открываем главную страницу сайта Github.com
         open("https://github.com");
+        //Осуществляем авторизацию пользователя
         $(byText("Sign in")).click();
         $(("#login_field")).val(user);
         $("#password").val(password);
         $(".btn.btn-primary.btn-block").click();
+        //Ищем и открываем необходимый репозиторий
         $("[data-ga-click='Header, show menu, icon:avatar']").click();
         $(byText("Your repositories")).click();
         $("[href='/dianamishanich/qa_guru_3_5']").click();
+        //Создаем новую Issue: вводим название, назначаем на пользователя, выбираем теги
         $("[href='/dianamishanich/qa_guru_3_5/issues']").click();
         $$(byText("New issue")).find(Condition.visible).parent().click();
         $("#issue_title").val(IssueTitle);
@@ -41,6 +45,7 @@ public class    SelenideIssuesTest {
         }
         $("#labels-select-menu").$("summary").pressEscape();
         $(byText("Submit new issue")).click();
+        //Осуществляем проверку: пользователь должен увидеть название новой Issue в списке Issues
         $(".header-search-input").click();
         $(".header-search-input").sendKeys(repository);
         $(".header-search-input").submit();
